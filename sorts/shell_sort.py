@@ -1,54 +1,26 @@
-"""
-This is a pure python implementation of the shell sort algorithm
+def shellSort(alist):
+    sublistcount = len(alist)//2
+    while sublistcount > 0:
+      for start_position in range(sublistcount):
+        gap_InsertionSort(alist, start_position, sublistcount)
 
-For doctests run following command:
-python -m doctest -v shell_sort.py
-or
-python3 -m doctest -v shell_sort.py
+      print("After increments of size",sublistcount, "The list is",nlist)
 
-For manual testing run:
-python shell_sort.py
-"""
-from __future__ import print_function
+      sublistcount = sublistcount // 2
+
+def gap_InsertionSort(nlist,start,gap):
+    for i in range(start+gap,len(nlist),gap):
+
+        current_value = nlist[i]
+        position = i
+
+        while position>=gap and nlist[position-gap]>current_value:
+            nlist[position]=nlist[position-gap]
+            position = position-gap
+
+        nlist[position]=current_value
 
 
-def shell_sort(collection):
-    """Pure implementation of shell sort algorithm in Python
-    :param collection:  Some mutable ordered collection with heterogeneous
-    comparable items inside
-    :return:  the same collection ordered by ascending
-
-    >>> shell_sort([0, 5, 3, 2, 2])
-    [0, 2, 2, 3, 5]
-
-    >>> shell_sort([])
-    []
-
-    >>> shell_sort([-2, -5, -45])
-    [-45, -5, -2]
-    """
-    # Marcin Ciura's gap sequence
-    gaps = [701, 301, 132, 57, 23, 10, 4, 1]
-
-    for gap in gaps:
-        i = gap
-        while i < len(collection):
-            temp = collection[i]
-            j = i
-            while j >= gap and collection[j - gap] > temp:
-                collection[j] = collection[j - gap]
-                j -= gap
-            collection[j] = temp
-            i += 1
-
-    return collection
-
-if __name__ == '__main__':
-    try:
-        raw_input          # Python 2
-    except NameError:
-        raw_input = input  # Python 3
-
-    user_input = raw_input('Enter numbers separated by a comma:\n').strip()
-    unsorted = [int(item) for item in user_input.split(',')]
-    print(shell_sort(unsorted))
+nlist = [14,46,43,27,57,41,45,21,70]
+shellSort(nlist)
+print(nlist)
