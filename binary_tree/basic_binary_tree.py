@@ -1,47 +1,74 @@
-class Node: # This is the Class Node with constructor that contains data variable to type data and left,right pointers.
-    def __init__(self, data):
-        self.data = data
+class BinaryTree:
+    def __init__(self, key=None):
+        self.key = key
         self.left = None
         self.right = None
-
-
-def depth_of_tree(tree): #This is the recursive function to find the depth of binary tree.
-    if tree is None:
-        return 0
-    else:
-        depth_l_tree = depth_of_tree(tree.left)
-        depth_r_tree = depth_of_tree(tree.right)
-        if depth_l_tree > depth_r_tree:
-            return 1 + depth_l_tree
+ 
+    def set_root(self, key):
+        self.key = key
+ 
+    def inorder(self):
+        if self.left is not None:
+            self.left.inorder()
+        print(self.key, end=' ')
+        if self.right is not None:
+            self.right.inorder()
+ 
+    def insert_left(self, new_node):
+        self.left = new_node
+ 
+    def insert_right(self, new_node):
+        self.right = new_node
+ 
+    def search(self, key):
+        if self.key == key:
+            return self
+        if self.left is not None:
+            temp =  self.left.search(key)
+            if temp is not None:
+                return temp
+        if self.right is not None:
+            temp =  self.right.search(key)
+            return temp
+        return None
+ 
+ 
+btree = None
+ 
+print('Menu (this assumes no duplicate keys)')
+print('insert <data> at root')
+print('insert <data> left of <data>')
+print('insert <data> right of <data>')
+print('quit')
+ 
+while True:
+    print('inorder traversal of binary tree: ', end='')
+    if btree is not None:
+        btree.inorder()
+    print()
+ 
+    do = input('What would you like to do? ').split()
+ 
+    operation = do[0].strip().lower()
+    if operation == 'insert':
+        data = int(do[1])
+        new_node = BinaryTree(data)
+        suboperation = do[2].strip().lower() 
+        if suboperation == 'at':
+                btree = new_node
         else:
-            return 1 + depth_r_tree
-
-
-def is_full_binary_tree(tree): # This functions returns that is it full binary tree or not?
-    if tree is None:
-        return True
-    if (tree.left is None) and (tree.right is None):
-        return True
-    if (tree.left is not None) and (tree.right is not None):
-        return (is_full_binary_tree(tree.left) and is_full_binary_tree(tree.right))
-    else:
-        return False
-
-
-def main(): # Main func for testing.
-    tree = Node(1)
-    tree.left = Node(2)
-    tree.right = Node(3)
-    tree.left.left = Node(4)
-    tree.left.right = Node(5)
-    tree.left.right.left = Node(6)
-    tree.right.left = Node(7)
-    tree.right.left.left = Node(8)
-    tree.right.left.left.right = Node(9)
-
-    print(is_full_binary_tree(tree))
-    print(depth_of_tree(tree))
-
-
-if __name__ == '__main__':
-    main()
+            position = do[4].strip().lower()
+            key = int(position)
+            ref_node = None
+            if btree is not None:
+                ref_node = btree.search(key)
+            if ref_node is None:
+                print('No such key.')
+                continue
+            if suboperation == 'left':
+                ref_node.insert_left(new_node)
+            elif suboperation == 'right':
+                ref_node.insert_right(new_node)
+ 
+    elif operation == 'quit':
+        break
