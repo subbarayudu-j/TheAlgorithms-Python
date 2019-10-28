@@ -1,13 +1,12 @@
-import math
-def primeCheck(number):
-    if number % 2 == 0 and number > 2: 
-        return False
-    return all(number % i for i in range(3, int(math.sqrt(number)) + 1, 2))
-
-def main():
-    print(primeCheck(37))
-    print(primeCheck(100))
-    print(primeCheck(77))
-
-if __name__ == '__main__':
-	main()
+def prime(x):
+	l=[]
+	for i in range(1,n+1):
+		if x%i==0:
+			l.append(i)
+	return(l)
+n=int(input("enter a no."))
+x=prime(n)
+if len(x)==2:
+      print("its a prime no.")
+else:
+      print("not a prime")
