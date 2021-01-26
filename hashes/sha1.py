@@ -2,7 +2,7 @@
 Demonstrates implementation of SHA1 Hash function in a Python class and gives utilities
 to find hash of string or hash of text from a file.
 Usage: python sha1.py --string "Hello World!!"
-       pyhton sha1.py --file "hello_world.txt"
+       python sha1.py --file "hello_world.txt"
        When run without any arguments, it prints the hash of the string "Hello World!! Welcome to Cryptography"
 Also contains a Test class to verify that the generated Hash is same as that
 returned by the hashlib library
