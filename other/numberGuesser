@@ -1,20 +1,31 @@
+"""
+Number guessing algorithm by Viridescence
+
+This algorithm will guess a number between the maximum and minimum parameter values by asking yes/no questions. 
+It does this in the most efficient way by asking if the number is higher/lower than the midpoint between the two numbers.
+Uses this information to create a new lower/upper bound.
+Only works with whole numbers, however
+"""
+
 def guessnumber(maximum,minimum):
+    # smallestnumber refers to the smallest possible number given the information, largestnumber refers to the largest possible number.
     smallestnumber = minimum
     biggestnumber = maximum
-    numgot = False
-    while not numgot == True:
+    while True:
+        #This if statement handles the final decision, when biggest and smallest number are only 1 apart
         if (biggestnumber - smallestnumber <= 1 and biggestnumber - smallestnumber > 0) or (smallestnumber - biggestnumber <= 1 and smallestnumber - biggestnumber > 0):
            print("Is your number ", smallestnumber, "?")
            userinput = input("")
            if userinput == "y":
                 print("Your number is... ",smallestnumber,"!")
-                numgot = True
+                return smallestnumber
            elif userinput == "n":
                 print("Your number is... ",biggestnumber,"!")
-                numgot = True
+                return biggestnumber
+        #This statement handles narrowing down the selection by constantly calculating the middle
         elif not ((biggestnumber - smallestnumber <= 1 and biggestnumber - smallestnumber > 0) or (smallestnumber - biggestnumber <= 1 and smallestnumber - biggestnumber > 0)):
             print("Is your number larger than or equal to ",(smallestnumber+biggestnumber)/2,"?")
-            userinput = inpàut("")
+            userinput = input("")
             if userinput == "n":
                 smallestnumber = round((smallestnumber+biggestnumber)/2)
             elif userinput == "y":
