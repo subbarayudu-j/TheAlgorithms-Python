@@ -1,3 +1,18 @@
+from __future__ import print_function
+"""
+Linear Search Algorithm
+
+Linear search is a simple searching technique that checks each element
+of a list one by one until the target element is found or the list ends.
+
+Input:
+- arr (list): A list of elements to search through
+- target: The element to be searched for in the list
+
+Output:
+- int: The index of the target element if found
+- -1: If the target element is not present in the list
+"""
 """
 This is pure python implementation of linear search algorithm
 
@@ -9,8 +24,6 @@ python3 -m doctest -v linear_search.py
 For manual testing run:
 python linear_search.py
 """
-from __future__ import print_function
-
 try:
     raw_input          # Python 2
 except NameError:
