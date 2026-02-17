@@ -74,10 +74,10 @@ __Properties__
 ###### Source: [Wikipedia][merge-wiki] 
 ###### View the algorithm in [action][merge-toptal]
 
-### Quick
+### Quick sort
 ![alt text][quick-image]
 
-**Quicksort** (sometimes called *partition-exchange sort*) is an efficient sorting algorithm, serving as a systematic method for placing the elements of an array in order.
+**Quick sort** (sometimes called *partition-exchange sort*) is an efficient sorting algorithm, serving as a systematic method for placing the elements of an array in order.
 
 __Properties__
 * Worst case performance	O(n<sup>2</sup>)
@@ -88,7 +88,7 @@ __Properties__
 ###### View the algorithm in [action][quick-toptal]
 
 
-### Heap
+### Heap sort
 
 **Heapsort** is a _comparison-based_ sorting algorithm. It can be thought of as an improved selection sort. It divides its input into a sorted and an unsorted region, and it iteratively shrinks the unsorted region by extracting the largest element and moving that to the sorted region.
 
@@ -113,7 +113,7 @@ __Properties__
 ###### Source: [Wikipedia][radix-wiki] 
 
 
-### Selection
+### Selection sort
 ![alt text][selection-image]
 
 **Selection sort** is an algorithm that divides the input list into two parts: the sublist of items already sorted, which is built up from left to right at the front (left) of the list, and the sublist of items remaining to be sorted that occupy the rest of the list. Initially, the sorted sublist is empty and the unsorted sublist is the entire input list. The algorithm proceeds by finding the smallest (or largest, depending on sorting order) element in the unsorted sublist, exchanging (swapping) it with the leftmost unsorted element (putting it in sorted order), and moving the sublist boundaries one element to the right.
@@ -127,7 +127,7 @@ __Properties__
 ###### View the algorithm in [action][selection-toptal]
 
 
-### Shell
+### Shell sort
 ![alt text][shell-image]
 
 **Shellsort** is a generalization of *insertion sort* that allows the exchange of items that are far apart.  The idea is to arrange the list of elements so that, starting anywhere, considering every nth element gives a sorted list.  Such a list is said to be h-sorted.  Equivalently, it can be thought of as h interleaved lists, each individually sorted.
@@ -141,7 +141,7 @@ __Properties__
 ###### View the algorithm in [action][shell-toptal]
 
 
-### Topological
+### Topological sort
 
 From [Wikipedia][topological-wiki]: **Topological sort**, or _topological ordering of a directed graph_ is a linear ordering of its vertices such that for every directed edge _uv_ from vertex _u_ to vertex _v_, _u_ comes before _v_ in the ordering. For instance, the vertices of the graph may represent tasks to be performed, and the edges may represent constraints that one task must be performed before another; in this application, a topological ordering is just a valid sequence for the tasks. A topological ordering is possible if and only if the graph has no directed cycles, that is, if it is a _directed acyclic graph_ (DAG). Any DAG has at least one topological ordering, and algorithms are known for constructing a topological ordering of any DAG in linear time.
 
