@@ -40,7 +40,7 @@ def merge_sort(collection):
         left_length = len(left_half)
         right_length = len(right_half)
         while i < left_length and j < right_length:
-            if left_half[i] < right_half[j]:
+            if left_half[i] <= right_half[j]:
                 collection[k] = left_half[i]
                 i += 1
             else:
@@ -48,15 +48,10 @@ def merge_sort(collection):
                 j += 1
             k += 1
 
-        while i < left_length:
-            collection[k] = left_half[i]
-            i += 1
-            k += 1
-
-        while j < right_length:
-            collection[k] = right_half[j]
-            j += 1
-            k += 1
+        if i < left_length:
+            collection[k:]=left_half[i:]
+        elif j < right_length:
+            collection[k:]=right_half[j:]
 
     return collection
 
